@@ -1,1 +1,4 @@
 //とりあえずコミット
+function test(){
+  console.log("tes");
+}
