@@ -1,2 +1,1 @@
-# firstGit
- First experience
+# なんかいろいろ置いていく予定
