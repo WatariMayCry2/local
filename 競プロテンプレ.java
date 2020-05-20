@@ -1,6 +1,6 @@
 import java.util.*;
 import java.io.*;
-public class Main {
+public class Main{
   static public class InputIterator{
     ArrayList<String> inputLine = new ArrayList<String>(1024);
     int index = 0; int max;
@@ -34,7 +34,8 @@ public class Main {
   }
   
   static InputIterator ii = new InputIterator(); 
-  static void myout(Object t){System.out.println(t);}
+  static PrintWriter out = new PrintWriter(System.out);
+  static void myout(Object t){out.println(t);}
   static void myerr(Object t){System.err.println(t);}
   static String next(){return ii.next();}
   static int nextInt(){return Integer.parseInt(next());}
@@ -59,12 +60,15 @@ public class Main {
     }
     return ret;
   }
-  
   static String kaigyoToStr(String[] list){return String.join("\n",list);}
   static String kaigyoToStr(ArrayList<String> list){return String.join("\n",list);}
   static String hanSpToStr(String[] list){return String.join(" ",list);}
   static String hanSpToStr(ArrayList<String> list){return String.join(" ",list);}
   public static void main(String[] args){
+    solve();
+    out.flush();
+  }
+  static public void solve(){//ここがメイン関数代わり
     
   }
   //Method addition frame start
