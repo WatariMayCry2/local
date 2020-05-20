@@ -40,23 +40,23 @@ public class Main{
   static String next(){return ii.next();}
   static int nextInt(){return Integer.parseInt(next());}
   static long nextLong(){return Long.parseLong(next());}
-  static String[] nextStrArray(){return myHanSpSplit(next());}
-  static String[] nextCharArray(){return mySingleSplit(next());}
-  static String[] mySingleSplit(String str){return str.split("");}
-  static String[] myHanSpSplit(String str){return str.split(" ");}
+  static ArrayList<String> nextStrArray(){return myHanSpSplit(next());}
+  static ArrayList<String> myHanSpSplit(String str){return new ArrayList<String>(Arrays.asList(str.split(" ")));}
+  static ArrayList<String> nextCharArray(){return mySingleSplit(next());}
+  static ArrayList<String> mySingleSplit(String str){return new ArrayList<String>(Arrays.asList(str.split("")));}
   static ArrayList<Integer> nextIntArray(){
     ArrayList<Integer> ret = new ArrayList<Integer>();
-    String[] input = nextStrArray();
-    for(int i = 0; i < input.length; i++){
-      ret.add(Integer.parseInt(input[i]));
+    ArrayList<String> input = nextStrArray();
+    for(int i = 0; i < input.size(); i++){
+      ret.add(Integer.parseInt(input.get(i)));
     }
     return ret;
   }
   static ArrayList<Long> nextLongArray(){
     ArrayList<Long> ret = new ArrayList<Long>();
-    String[] input = nextStrArray();
-    for(int i = 0; i < input.length; i++){
-      ret.add(Long.parseLong(input[i]));
+    ArrayList<String> input = nextStrArray();
+    for(int i = 0; i < input.size(); i++){
+      ret.add(Long.parseLong(input.get(i)));
     }
     return ret;
   }
@@ -69,7 +69,8 @@ public class Main{
     out.flush();
   }
   static public void solve(){//ここがメイン関数代わり
-    
+    ArrayList<String> chars = nextStrArray();
+    myout(chars);
   }
   //Method addition frame start
 
