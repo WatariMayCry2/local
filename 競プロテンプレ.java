@@ -3,8 +3,7 @@ import java.io.*;
 public class Main {
   static public class InputIterator{
     ArrayList<String> inputLine = new ArrayList<String>(1024);
-    int index = 0;
-    int max;
+    int index = 0; int max;
     InputIterator(){
       BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
       while(true){
