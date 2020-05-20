@@ -69,8 +69,7 @@ public class Main{
     out.flush();
   }
   static public void solve(){//ここがメイン関数代わり
-    ArrayList<String> chars = nextStrArray();
-    myout(chars);
+    
   }
   //Method addition frame start
 
