@@ -13,6 +13,7 @@ read.on('close', function(){
   var end = new Date() - start;
   myerr("----- end -----");
   myerr("time : " + (end) + "ms");
+  myerr("memory : " + Math.round(process.memoryUsage().heapTotal / 1024) + "KB");
 });
 function nextInt(){return myconv(next(),1);} function nextStrArray(){return myconv(next(),2);}
 function nextIntArray(){return myconv(next(),4);} function nextCharArray(){return myconv(next(),6);}
