@@ -1,3 +1,4 @@
+//↓見なくていいよ！ここから--------------------------------------------------
 var read = require('readline').createInterface({
   input: process.stdin,
   output: process.stdout
@@ -34,6 +35,8 @@ function myerr(s){console.error("debug:" + require("util").inspect(s,false,null)
 //6:1文字で分割  7:1文字で分割し、数値配列へ
 //8:半角SPで結合 9:改行で結合 0:文字なしで結合
 function myconv(i,no){try{switch(no){case 1:return parseInt(i);case 2:return i.split(" ");case 4:return i.split(" ").map(Number);case 6:return i.split("");case 7:return i.split("").map(Number);case 8:return i.join(" ");case 9:return i.join("\n");case 0:return i.join("");default:return i;}}catch(e){return i;}}
+
+//↑見なくていいよ！ここまで--------------------------------------------------
 function Main(){
   
 }
