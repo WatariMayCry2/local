@@ -1,6 +1,7 @@
 import java.util.*;
 import java.io.*;
 public class Main{
+  //↓見なくていいよ！ここから------------------------------------------
   static public class InputIterator{
     ArrayList<String> inputLine = new ArrayList<String>(1024);
     int index = 0; int max;
@@ -68,6 +69,7 @@ public class Main{
     solve();
     out.flush();
   }
+  //↑見なくていいよ！ここまで------------------------------------------
   static public void solve(){//ここがメイン関数代わり
     
   }
