@@ -36,6 +36,7 @@ public class Main{
   
   static InputIterator ii = new InputIterator(); 
   static PrintWriter out = new PrintWriter(System.out);
+  static void flush(){out.flush();}
   static void myout(Object t){out.println(t);}
   static void myerr(Object t){System.err.println(t);}
   static String next(){return ii.next();}
@@ -67,7 +68,7 @@ public class Main{
   static String hanSpToStr(ArrayList<String> list){return String.join(" ",list);}
   public static void main(String[] args){
     solve();
-    out.flush();
+    flush();
   }
   //↑見なくていいよ！ここまで------------------------------------------
   static public void solve(){//ここがメイン関数代わり
