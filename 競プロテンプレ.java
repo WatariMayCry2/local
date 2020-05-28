@@ -34,7 +34,7 @@ public class Main{
     }
   }
   
-  static InputIterator ii = new InputIterator(); 
+  static InputIterator ii = new InputIterator();//リアクティブでは使えないので諦めてScanner使うこと
   static PrintWriter out = new PrintWriter(System.out);
   static void flush(){out.flush();}
   static void myout(Object t){out.println(t);}
