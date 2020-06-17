@@ -1,9 +1,7 @@
-import java.util.*;
-import java.io.*;
-import java.math.*;
+import java.util.*;import java.io.*;import java.math.*;
 public class Main{
   //↓見なくていいよ！ここから------------------------------------------
-  static public class InputIterator{
+  static class InputIterator{
     ArrayList<String> inputLine = new ArrayList<String>(1024);
     int index = 0; int max;
     InputIterator(){
@@ -23,14 +21,14 @@ public class Main{
       }
       max = inputLine.size();
     }
-    public boolean hasNext(){return (index < max);}
-    public String next(){
+    boolean hasNext(){return (index < max);}
+    String next(){
       if(hasNext()){
         String returnStr = inputLine.get(index);
         index++;
         return returnStr;
       }else{
-        throw new IndexOutOfBoundsException("これ以上入力はないよ。");
+        throw new IndexOutOfBoundsException("これ以上入力はないよ");
       }
     }
   }
@@ -72,7 +70,7 @@ public class Main{
     flush();
   }
   //↑見なくていいよ！ここまで------------------------------------------
-  static public void solve(){//ここがメイン関数代わり
+  static void solve(){//ここがメイン関数代わり
     
   }
   //Method addition frame start
