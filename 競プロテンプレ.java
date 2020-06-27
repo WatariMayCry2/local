@@ -66,12 +66,13 @@ public class Main{
   static String hanSpToStr(String[] list){return String.join(" ",list);}
   static String hanSpToStr(ArrayList<String> list){return String.join(" ",list);}
   public static void main(String[] args){
+    Runtime rt = Runtime.getRuntime();
     long mae = System.currentTimeMillis();
     solve();
     flush();
     long ato = System.currentTimeMillis();
     myerr("time : " + (ato - mae) + "ms");
-    myerr("memory : " + (Runtime.getRuntime().totalMemory() / 1024) + "KB");
+    myerr("memory : " + ((rt.totalMemory() - rt.getRuntime().freeMemory()) / 1024) + "KB");
   }
   //↑見なくていいよ！ここまで------------------------------------------
   static void solve(){//ここがメイン関数代わり
