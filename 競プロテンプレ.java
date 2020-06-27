@@ -37,7 +37,7 @@ public class Main{
   static PrintWriter out = new PrintWriter(System.out);
   static void flush(){out.flush();}
   static void myout(Object t){out.println(t);}
-  static void myerr(Object t){System.err.println(t);}
+  static void myerr(Object t){System.err.print("debug:");System.err.println(t);}
   static String next(){return ii.next();}
   static int nextInt(){return Integer.parseInt(next());}
   static long nextLong(){return Long.parseLong(next());}
@@ -66,8 +66,12 @@ public class Main{
   static String hanSpToStr(String[] list){return String.join(" ",list);}
   static String hanSpToStr(ArrayList<String> list){return String.join(" ",list);}
   public static void main(String[] args){
+    long mae = System.currentTimeMillis();
     solve();
     flush();
+    long ato = System.currentTimeMillis();
+    myerr("time : " + (ato - mae) + "ms");
+    myerr("memory : " + (Runtime.getRuntime().totalMemory() / 1024) + "KB");
   }
   //↑見なくていいよ！ここまで------------------------------------------
   static void solve(){//ここがメイン関数代わり
