@@ -8,11 +8,10 @@ var inLine = [];
 read.on('line', function(input){inLine.push(input);});
 read.on('close', function(){
   obj = init(inLine);
-  myerr("-----start-----");
+  console.error("\n");
   var start = new Date();
   Main();
   var end = new Date() - start;
-  myerr("----- end -----");
   myerr("time : " + (end) + "ms");
   myerr("memory : " + Math.round(process.memoryUsage().heapTotal / 1024) + "KB");
 });
