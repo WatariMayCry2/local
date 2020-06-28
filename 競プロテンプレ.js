@@ -8,7 +8,7 @@ var inLine = [];
 read.on('line', function(input){inLine.push(input);});
 read.on('close', function(){
   obj = init(inLine);
-  console.error("");
+  console.error("\n");
   var start = new Date();
   Main();
   var end = new Date() - start;
