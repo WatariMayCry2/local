@@ -72,7 +72,7 @@ public class Main{
     flush();
     long ato = System.currentTimeMillis();
     myerr("time : " + (ato - mae) + "ms");
-    myerr("memory : " + ((rt.totalMemory() - rt.getRuntime().freeMemory()) / 1024) + "KB");
+    myerr("memory : " + ((rt.totalMemory() - rt.freeMemory()) / 1024) + "KB");
   }
   //↑見なくていいよ！ここまで------------------------------------------
   static void solve(){//ここがメイン関数代わり
