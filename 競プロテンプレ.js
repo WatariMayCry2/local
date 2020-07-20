@@ -9,9 +9,9 @@ read.on('line', function(input){inLine.push(input);});
 read.on('close', function(){
   obj = init(inLine);
   console.error("\n");
-  var start = new Date();
+  var start = Date.now();
   Main();
-  var end = new Date() - start;
+  var end = Date.now() - start;
   myerr("time : " + (end) + "ms");
   myerr("memory : " + Math.round(process.memoryUsage().heapTotal / 1024) + "KB");
 });
