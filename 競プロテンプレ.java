@@ -84,8 +84,7 @@ public class Main{
 	public static void main(String[] args){
 		Runtime rt = Runtime.getRuntime();
 		long mae = System.currentTimeMillis();
-		solve();
-		flush();
+		solve();flush();
 		long ato = System.currentTimeMillis();
 		myerr("time : " + (ato - mae) + "ms");
 		myerr("memory : " + ((rt.totalMemory() - rt.freeMemory()) / 1024) + "KB");
