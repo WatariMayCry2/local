@@ -61,10 +61,24 @@ public class Main{
 		}
 		return ret;
 	}
-	static String kaigyoToStr(String[] list){return String.join("\n",list);}
-	static String kaigyoToStr(ArrayList<String> list){return String.join("\n",list);}
-	static String hanSpToStr(String[] list){return String.join(" ",list);}
-	static String hanSpToStr(ArrayList<String> list){return String.join(" ",list);}
+	static final int HAN = 8;
+	static final int NL = 9;
+	static final int NOCHAR = 0;
+	static String myconv(Object list, int no){//only join
+		String joinString = "";
+		if(no == HAN){
+			joinString = " ";
+		}else if(no == NL){
+			joinString = "\n";
+		}
+		if(list instanceof String[]){
+			return String.join(joinString,(String[])list);
+		}else if(list instanceof ArrayList){
+			return String.join(joinString,(ArrayList)list);
+		}else{
+			throw new ClassCastException("Don't join");
+		}
+	}
 	public static void main(String[] args){
 		Runtime rt = Runtime.getRuntime();
 		long mae = System.currentTimeMillis();
