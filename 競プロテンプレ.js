@@ -1,4 +1,4 @@
-//↓見なくていいよ！ここから--------------------------------------------------
+//Don't have to see. start------------------------------------------
 var read = require('readline').createInterface({
   input: process.stdin,
   output: process.stdout
@@ -23,20 +23,20 @@ function init(input){
   var returnObj = {
     list : input, index : 0, max : input.length,
     hasNext : function(){return (this.index < this.max);},
-    next : function(){if(!this.hasNext()){throw "ArrayIndexOutOfBoundsException これ以上ないよ";}else{var returnInput = this.list[this.index];this.index++;return returnInput;}}
+    next : function(){if(!this.hasNext()){throw "ArrayIndexOutOfBoundsException ‚There is no more input";}else{var returnInput = this.list[this.index];this.index++;return returnInput;}}
   };
   return returnObj;
 }
 function myout(s){console.log(s);}
 function myerr(s){console.error("debug:" + require("util").inspect(s,false,null));}
-//[no]要素の扱い。数値型
-//不明値、異常時:引数そのまま返す 1:数値へ変換
-//2:半角SPで分割 4:半角SPで分割し、数値配列へ
-//6:1文字で分割  7:1文字で分割し、数値配列へ
-//8:半角SPで結合 9:改行で結合 0:文字なしで結合
+//param "no" is
+//unknown or outlier : return i. 1: parseInt.
+//2: split space. 4: split space and parseInt.
+//6: split 1 character. 7: split 1 character and parseInt.
+//8: join space. 9: join nextline. 0: join no character.
 function myconv(i,no){try{switch(no){case 1:return parseInt(i);case 2:return i.split(" ");case 4:return i.split(" ").map(Number);case 6:return i.split("");case 7:return i.split("").map(Number);case 8:return i.join(" ");case 9:return i.join("\n");case 0:return i.join("");default:return i;}}catch(e){return i;}}
 
-//↑見なくていいよ！ここまで--------------------------------------------------
+//Don't have to see. end------------------------------------------
 function Main(){
-  
+	
 }
