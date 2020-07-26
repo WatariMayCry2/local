@@ -74,7 +74,7 @@ public class Main{
 		myerr("time : " + (ato - mae) + "ms");
 		myerr("memory : " + ((rt.totalMemory() - rt.freeMemory()) / 1024) + "KB");
 	}
-	////Don't have to see. end------------------------------------------
+	//Don't have to see. end------------------------------------------
 	static void solve(){//Here is the main function
 		
 	}
