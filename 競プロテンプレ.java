@@ -41,10 +41,8 @@ public class Main{
 	static String next(){return ii.next();}
 	static int nextInt(){return Integer.parseInt(next());}
 	static long nextLong(){return Long.parseLong(next());}
-	static ArrayList<String> nextStrArray(){return myHanSpSplit(next());}
-	static ArrayList<String> myHanSpSplit(String str){return new ArrayList<String>(Arrays.asList(str.split(" ")));}
-	static ArrayList<String> nextCharArray(){return mySingleSplit(next());}
-	static ArrayList<String> mySingleSplit(String str){return new ArrayList<String>(Arrays.asList(str.split("")));}
+	static ArrayList<String> nextStrArray(){return myconv(next(), HAN);}
+	static ArrayList<String> nextCharArray(){return myconv(next(), NOCHAR);}
 	static ArrayList<Integer> nextIntArray(){
 		ArrayList<Integer> ret = new ArrayList<Integer>(OBJECT_MEMORY);
 		ArrayList<String> input = nextStrArray();
@@ -78,6 +76,10 @@ public class Main{
 		}else{
 			throw new ClassCastException("Don't join");
 		}
+	}
+	static ArrayList<String> myconv(String str, int no){//only split
+		String splitString = (no == NOCHAR) ? "" : " ";
+		return new ArrayList<String>(Arrays.asList(str.split(splitString)));
 	}
 	public static void main(String[] args){
 		Runtime rt = Runtime.getRuntime();
