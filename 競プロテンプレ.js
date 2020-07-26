@@ -3,8 +3,7 @@ var read = require('readline').createInterface({
   input: process.stdin,
   output: process.stdout
 });
-var obj;
-var inLine = [];
+var obj; var inLine = [];
 read.on('line', function(input){inLine.push(input);});
 read.on('close', function(){
   obj = init(inLine);
@@ -23,7 +22,7 @@ function init(input){
   var returnObj = {
     list : input, index : 0, max : input.length,
     hasNext : function(){return (this.index < this.max);},
-    next : function(){if(!this.hasNext()){throw "ArrayIndexOutOfBoundsException ‚There is no more input";}else{var returnInput = this.list[this.index];this.index++;return returnInput;}}
+    next : function(){if(!this.hasNext()){throw "ArrayIndexOutOfBoundsException ‚There is no more input";}else{var returnInput = this.list[this.index++];return returnInput;}}
   };
   return returnObj;
 }
