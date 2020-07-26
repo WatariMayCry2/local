@@ -2,7 +2,7 @@ import java.util.*;import java.io.*;import java.math.*;
 public class Main{
 	//Don't have to see. start------------------------------------------
 	static class InputIterator{
-		ArrayList<String> inputLine = new ArrayList<String>(1024);
+		ArrayList<String> inputLine = new ArrayList<String>(OBJECT_MEMORY);
 		int index = 0; int max;
 		InputIterator(){
 			BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -32,7 +32,7 @@ public class Main{
 			}
 		}
 	}
-  
+	static final int OBJECT_MEMORY = 1024;
 	static InputIterator ii = new InputIterator();//This class cannot be used in reactive problem.
 	static PrintWriter out = new PrintWriter(System.out);
 	static void flush(){out.flush();}
@@ -46,7 +46,7 @@ public class Main{
 	static ArrayList<String> nextCharArray(){return mySingleSplit(next());}
 	static ArrayList<String> mySingleSplit(String str){return new ArrayList<String>(Arrays.asList(str.split("")));}
 	static ArrayList<Integer> nextIntArray(){
-		ArrayList<Integer> ret = new ArrayList<Integer>();
+		ArrayList<Integer> ret = new ArrayList<Integer>(OBJECT_MEMORY);
 		ArrayList<String> input = nextStrArray();
 		for(int i = 0; i < input.size(); i++){
 			ret.add(Integer.parseInt(input.get(i)));
@@ -54,7 +54,7 @@ public class Main{
 		return ret;
 	}
 	static ArrayList<Long> nextLongArray(){
-		ArrayList<Long> ret = new ArrayList<Long>();
+		ArrayList<Long> ret = new ArrayList<Long>(OBJECT_MEMORY);
 		ArrayList<String> input = nextStrArray();
 		for(int i = 0; i < input.size(); i++){
 			ret.add(Long.parseLong(input.get(i)));
