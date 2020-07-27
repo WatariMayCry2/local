@@ -1,6 +1,6 @@
 //Don't have to see. start------------------------------------------
 var read = require('readline').createInterface({
-  input: process.stdin,output: process.stdout
+  input: process.stdin, output: process.stdout
 });
 var obj; var inLine = [];
 read.on('line', function(input){inLine.push(input);});
