@@ -24,8 +24,7 @@ public class Main{
 		boolean hasNext(){return (index < max);}
 		String next(){
 			if(hasNext()){
-				String returnStr = inputLine.get(index);
-				index++;
+				String returnStr = inputLine.get(index++);
 				return returnStr;
 			}else{
 				throw new IndexOutOfBoundsException("There is no more input");
