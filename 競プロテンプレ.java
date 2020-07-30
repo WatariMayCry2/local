@@ -49,16 +49,9 @@ public class Main{
 		}
 		return ret;
 	}
-	static final int HAN = 8;
-	static final int NL = 9;
-	static final int NOCHAR = 0;
+	static HashMap<Integer, String> CONVSTR = new HashMap<Integer, String>();
 	static String myconv(Object list, int no){//only join
-		String joinString = "";
-		if(no == HAN){
-			joinString = " ";
-		}else if(no == NL){
-			joinString = "\n";
-		}
+		String joinString = CONVSTR.get(no);
 		if(list instanceof String[]){
 			return String.join(joinString,(String[])list);
 		}else if(list instanceof ArrayList){
@@ -68,10 +61,11 @@ public class Main{
 		}
 	}
 	static ArrayList<String> myconv(String str, int no){//only split
-		String splitString = (no == NOCHAR) ? "" : " ";
+		String splitString = String joinString = CONVSTR.get(no);
 		return new ArrayList<String>(Arrays.asList(str.split(splitString)));
 	}
 	public static void main(String[] args){
+		CONVSTR.put(8, " ");CONVSTR.put(9, "\n");CONVSTR.put(0, "");
 		Runtime rt = Runtime.getRuntime();
 		long mae = System.currentTimeMillis();
 		solve();flush();
