@@ -18,12 +18,11 @@ function nextInt(){return myconv(next(),1);} function nextStrArray(){return myco
 function nextIntArray(){return myconv(next(),4);} function nextCharArray(){return myconv(next(),6);}
 function next(){return obj.next();} function hasNext(){return obj.hasNext();}
 function init(input){  
-  var returnObj = {
+  return {
     list : input, index : 0, max : input.length,
     hasNext : function(){return (this.index < this.max);},
     next : function(){if(!this.hasNext()){throw "ArrayIndexOutOfBoundsException ‚There is no more input";}else{return this.list[this.index++];}}
   };
-  return returnObj;
 }
 function myout(s){console.log(s);}
 function myerr(s){console.error("debug:" + require("util").inspect(s,false,null));}
