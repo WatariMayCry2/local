@@ -21,7 +21,7 @@ function init(input){
   return {
     list : input, index : 0, max : input.length,
     hasNext : function(){return (this.index < this.max);},
-    next : function(){if(!this.hasNext()){throw "ArrayIndexOutOfBoundsException ‚There is no more input";}else{return this.list[this.index++];}}
+    next : function(){if(this.hasNext()){return this.list[this.index++];}else{throw "ArrayIndexOutOfBoundsException ‚There is no more input";}}
   };
 }
 function myout(s){console.log(s);}
