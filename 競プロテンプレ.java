@@ -64,7 +64,7 @@ public class Main{
 		return new ArrayList<String>(Arrays.asList(str.split(splitString)));
 	}
 	public static void main(String[] args){
-		CONVSTR.put(8, " ");CONVSTR.put(9, "\n");CONVSTR.put(0, "");
+		CONVSTR.put(8, " "); CONVSTR.put(9, "\n"); CONVSTR.put(0, "");
 		Runtime rt = Runtime.getRuntime();
 		long mae = System.currentTimeMillis();
 		solve();flush();
