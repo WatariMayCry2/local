@@ -2,7 +2,7 @@ import java.util.*;import java.io.*;import java.math.*;
 public class Main{
 	//Don't have to see. start------------------------------------------
 	static class InputIterator{
-		ArrayList<String> inputLine = new ArrayList<String>(OBJECT_MEMORY);
+		ArrayList<String> inputLine = new ArrayList<String>(1024);
 		int index = 0; int max; String read;
 		InputIterator(){
 			BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -23,7 +23,6 @@ public class Main{
 			}
 		}
 	}
-	static final int OBJECT_MEMORY = 1024;
 	static InputIterator ii = new InputIterator();//This class cannot be used in reactive problem.
 	static PrintWriter out = new PrintWriter(System.out);
 	static void flush(){out.flush();}
