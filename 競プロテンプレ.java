@@ -1,4 +1,4 @@
-import java.util.*;import java.io.*;import java.math.*;
+import java.util.*; import java.io.*; import java.math.*;
 public class Main{
 	//Don't have to see. start------------------------------------------
 	static class InputIterator{
