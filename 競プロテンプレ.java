@@ -3,22 +3,14 @@ public class Main{
 	//Don't have to see. start------------------------------------------
 	static class InputIterator{
 		ArrayList<String> inputLine = new ArrayList<String>(OBJECT_MEMORY);
-		int index = 0; int max;
+		int index = 0; int max; String read;
 		InputIterator(){
 			BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-			while(true){
-				String read;
-				try{
-					read = br.readLine();
-				}catch(IOException e){
-					read = null;
-				}
-				if(read != null){
+			try{
+				while((read = br.readLine()) != null){
 					inputLine.add(read);
-				}else{
-					break;
 				}
-			}
+			}catch(IOException e){}
 			max = inputLine.size();
 		}
 		boolean hasNext(){return (index < max);}
