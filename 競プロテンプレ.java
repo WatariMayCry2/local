@@ -30,8 +30,8 @@ public class Main{
 	static String next(){return ii.next();}
 	static int nextInt(){return Integer.parseInt(next());}
 	static long nextLong(){return Long.parseLong(next());}
-	static ArrayList<String> nextStrArray(){return myconv(next(), HAN);}
-	static ArrayList<String> nextCharArray(){return myconv(next(), NOCHAR);}
+	static ArrayList<String> nextStrArray(){return myconv(next(), 8);}
+	static ArrayList<String> nextCharArray(){return myconv(next(), 0);}
 	static ArrayList<Integer> nextIntArray(){
 		ArrayList<String> input = nextStrArray();
 		ArrayList<Integer> ret = new ArrayList<Integer>(input.size());
