@@ -43,7 +43,6 @@ public class Main{
 	static ArrayList<Long> nextLongArray(){
 		ArrayList<String> input = nextStrArray();
 		ArrayList<Long> ret = new ArrayList<Long>(input.size());
-		
 		for(int i = 0; i < input.size(); i++){
 			ret.add(Long.parseLong(input.get(i)));
 		}
