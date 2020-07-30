@@ -43,16 +43,17 @@ public class Main{
 	static ArrayList<String> nextStrArray(){return myconv(next(), HAN);}
 	static ArrayList<String> nextCharArray(){return myconv(next(), NOCHAR);}
 	static ArrayList<Integer> nextIntArray(){
-		ArrayList<Integer> ret = new ArrayList<Integer>(OBJECT_MEMORY);
 		ArrayList<String> input = nextStrArray();
+		ArrayList<Integer> ret = new ArrayList<Integer>(input.size());
 		for(int i = 0; i < input.size(); i++){
 			ret.add(Integer.parseInt(input.get(i)));
 		}
 		return ret;
 	}
 	static ArrayList<Long> nextLongArray(){
-		ArrayList<Long> ret = new ArrayList<Long>(OBJECT_MEMORY);
 		ArrayList<String> input = nextStrArray();
+		ArrayList<Long> ret = new ArrayList<Long>(input.size());
+		
 		for(int i = 0; i < input.size(); i++){
 			ret.add(Long.parseLong(input.get(i)));
 		}
