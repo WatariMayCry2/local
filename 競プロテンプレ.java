@@ -60,7 +60,7 @@ public class Main{
 		}
 	}
 	static ArrayList<String> myconv(String str, int no){//only split
-		String splitString = String joinString = CONVSTR.get(no);
+		String splitString = CONVSTR.get(no);
 		return new ArrayList<String>(Arrays.asList(str.split(splitString)));
 	}
 	public static void main(String[] args){
