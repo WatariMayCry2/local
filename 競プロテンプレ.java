@@ -33,16 +33,14 @@ public class Main{
 	static ArrayList<String> nextStrArray(){return myconv(next(), 8);}
 	static ArrayList<String> nextCharArray(){return myconv(next(), 0);}
 	static ArrayList<Integer> nextIntArray(){
-		ArrayList<String> input = nextStrArray();
-		ArrayList<Integer> ret = new ArrayList<Integer>(input.size());
+		ArrayList<String> input = nextStrArray(); ArrayList<Integer> ret = new ArrayList<Integer>(input.size());
 		for(int i = 0; i < input.size(); i++){
 			ret.add(Integer.parseInt(input.get(i)));
 		}
 		return ret;
 	}
 	static ArrayList<Long> nextLongArray(){
-		ArrayList<String> input = nextStrArray();
-		ArrayList<Long> ret = new ArrayList<Long>(input.size());
+		ArrayList<String> input = nextStrArray(); ArrayList<Long> ret = new ArrayList<Long>(input.size());
 		for(int i = 0; i < input.size(); i++){
 			ret.add(Long.parseLong(input.get(i)));
 		}
@@ -52,9 +50,9 @@ public class Main{
 	static String myconv(Object list, int no){//only join
 		String joinString = CONVSTR.get(no);
 		if(list instanceof String[]){
-			return String.join(joinString,(String[])list);
+			return String.join(joinString, (String[])list);
 		}else if(list instanceof ArrayList){
-			return String.join(joinString,(ArrayList)list);
+			return String.join(joinString, (ArrayList)list);
 		}else{
 			throw new ClassCastException("Don't join");
 		}
@@ -74,7 +72,7 @@ public class Main{
 	}
 	//Don't have to see. end------------------------------------------
 	static void solve(){//Here is the main function
-		
+
 	}
 	//Method addition frame start
 
