@@ -28,6 +28,7 @@ public class Main{
 	static void myout(Object t){out.println(t);}
 	static void myerr(Object t){System.err.print("debug:");System.err.println(t);}
 	static String next(){return ii.next();}
+	static boolean hasNext(){return ii.hasNext();}
 	static int nextInt(){return Integer.parseInt(next());}
 	static long nextLong(){return Long.parseLong(next());}
 	static ArrayList<String> nextStrArray(){return myconv(next(), 8);}
