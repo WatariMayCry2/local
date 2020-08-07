@@ -13,7 +13,7 @@ read.on('close', function(){
   myerr("time : " + (end) + "ms");
   myerr("memory : " + Math.round(process.memoryUsage().heapTotal / 1024) + "KB");
 });
-function makeClone(obj){return JSON.parse(JSON.stringify(obj));}
+function makeClone(obj){return (obj instanceof Set) ? new Set(Array.from(obj)) : JSON.parse(JSON.stringify(obj));}
 function nextInt(){return myconv(next(),1);} function nextStrArray(){return myconv(next(),2);}
 function nextIntArray(){return myconv(next(),4);} function nextCharArray(){return myconv(next(),6);}
 function next(){return obj.next();} function hasNext(){return obj.hasNext();}
