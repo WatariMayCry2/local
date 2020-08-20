@@ -22,6 +22,7 @@ public class Main{
 			}
 		}
 	}
+	static HashMap<Integer, String> CONVSTR = new HashMap<Integer, String>();
 	static InputIterator ii = new InputIterator();//This class cannot be used in reactive problem.
 	static PrintWriter out = new PrintWriter(System.out);
 	static void flush(){out.flush();}
@@ -47,7 +48,6 @@ public class Main{
 		}
 		return ret;
 	}
-	static HashMap<Integer, String> CONVSTR = new HashMap<Integer, String>();
 	static String myconv(Object list, int no){//only join
 		String joinString = CONVSTR.get(no);
 		if(list instanceof String[]){
