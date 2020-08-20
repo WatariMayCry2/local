@@ -6,12 +6,8 @@ var obj; var inLine = [];
 read.on('line', function(input){inLine.push(input);});
 read.on('close', function(){
   obj = init(inLine);
-  console.error('\n');
-  var start = Date.now();
+  console.error('\n↑入力 ↓出力');
   Main();
-  var end = Date.now() - start;
-  myerr('time : ' + end + 'ms');
-  myerr('memory : ' + Math.round(process.memoryUsage().heapTotal / 1024) + 'KB');
 });
 function makeClone(obj){return (obj instanceof Set) ? new Set(Array.from(obj)) : JSON.parse(JSON.stringify(obj));}
 function nextInt(){return myconv(next(),1);} function nextStrArray(){return myconv(next(),2);}
