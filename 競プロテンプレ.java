@@ -64,12 +64,7 @@ public class Main{
 	}
 	public static void main(String[] args){
 		CONVSTR.put(8, " "); CONVSTR.put(9, "\n"); CONVSTR.put(0, "");
-		Runtime rt = Runtime.getRuntime();
-		long mae = System.currentTimeMillis();
 		solve();flush();
-		long ato = System.currentTimeMillis();
-		myerr("time : " + (ato - mae) + "ms");
-		myerr("memory : " + ((rt.totalMemory() - rt.freeMemory()) / 1024) + "KB");
 	}
 	//Don't have to see. end------------------------------------------
 	static void solve(){//Here is the main function
