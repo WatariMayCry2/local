@@ -32,6 +32,7 @@ public class Main{
 	static boolean hasNext(){return ii.hasNext();}
 	static int nextInt(){return Integer.parseInt(next());}
 	static long nextLong(){return Long.parseLong(next());}
+	static double nextDouble(){return Double.parseDouble(next());}
 	static ArrayList<String> nextStrArray(){return myconv(next(), 8);}
 	static ArrayList<String> nextCharArray(){return myconv(next(), 0);}
 	static ArrayList<Integer> nextIntArray(){
