@@ -1,5 +1,14 @@
 import java.util.*; import java.io.*; import java.math.*;
 public class Main{
+	static void solve(){//Here is the main function
+		
+	}
+	//Method addition frame start
+
+
+
+	//Method addition frame end
+
 	//Don't have to see. start------------------------------------------
 	static class InputIterator{
 		ArrayList<String> inputLine = new ArrayList<String>(1024);
@@ -68,12 +77,4 @@ public class Main{
 		solve();flush();
 	}
 	//Don't have to see. end------------------------------------------
-	static void solve(){//Here is the main function
-
-	}
-	//Method addition frame start
-
-
-
-	//Method addition frame end
 }
