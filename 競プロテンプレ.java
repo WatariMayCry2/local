@@ -11,7 +11,7 @@ public class Main{
 
 	//Don't have to see. start------------------------------------------
 	static class InputIterator{
-		ArrayList<String> inputLine = new ArrayList<String>(1024);
+		ArrayList<String> inputLine = new ArrayList<>(1024);
 		int index = 0; int max; String read;
 		InputIterator(){
 			BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -31,7 +31,7 @@ public class Main{
 			}
 		}
 	}
-	static HashMap<Integer, String> CONVSTR = new HashMap<Integer, String>();
+	static HashMap<Integer, String> CONVSTR = new HashMap<>();
 	static InputIterator ii = new InputIterator();//This class cannot be used in reactive problem.
 	static PrintWriter out = new PrintWriter(System.out);
 	static void flush(){out.flush();}
@@ -45,14 +45,14 @@ public class Main{
 	static ArrayList<String> nextStrArray(){return myconv(next(), 8);}
 	static ArrayList<String> nextCharArray(){return myconv(next(), 0);}
 	static ArrayList<Integer> nextIntArray(){
-		ArrayList<String> input = nextStrArray(); ArrayList<Integer> ret = new ArrayList<Integer>(input.size());
+		ArrayList<String> input = nextStrArray(); ArrayList<Integer> ret = new ArrayList<>(input.size());
 		for(int i = 0; i < input.size(); i++){
 			ret.add(Integer.parseInt(input.get(i)));
 		}
 		return ret;
 	}
 	static ArrayList<Long> nextLongArray(){
-		ArrayList<String> input = nextStrArray(); ArrayList<Long> ret = new ArrayList<Long>(input.size());
+		ArrayList<String> input = nextStrArray(); ArrayList<Long> ret = new ArrayList<>(input.size());
 		for(int i = 0; i < input.size(); i++){
 			ret.add(Long.parseLong(input.get(i)));
 		}
