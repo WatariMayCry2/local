@@ -58,6 +58,7 @@ public class Main{
 		}
 		return ret;
 	}
+	@SuppressWarnings("unchecked")
 	static String myconv(Object list, int no){//only join
 		String joinString = CONVSTR.get(no);
 		if(list instanceof String[]){
