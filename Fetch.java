@@ -2,13 +2,14 @@ import java.net.*;
 import java.util.*;
 import java.io.*;
 public class Fetch{
+	static final String MULTI_TEST_DIR_STRING = "./multiTest";
 	Fetch(){}
 	public static void main(String[] args){
 		try{
-			File multiTestDir = new File("./multiTest");
+			File multiTestDir = new File(MULTI_TEST_DIR_STRING);
 			String[] multiTestFiles = multiTestDir.list();
 			for(int i = 0; i < multiTestFiles.length; i++){
-				File tmpFile = new File("./multiTest/" + multiTestFiles[i]);
+				File tmpFile = new File(MULTI_TEST_DIR_STRING + multiTestFiles[i]);
 				tmpFile.delete();
 			}
 			Scanner sc = new Scanner(System.in);
