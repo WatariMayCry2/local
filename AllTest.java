@@ -8,17 +8,17 @@ class AllTest{
 	AllTest(){}
 	public static void main(String[] arg){
 		Runtime rt = Runtime.getRuntime();
-		File multiTestDir = new File("./" + INPUT_DIR_STRING);
-		if(!multiTestDir.exists()){
-			System.out.println("Get the test case first.");
+		File testDir = new File("./" + INPUT_DIR_STRING);
+		if(!testDir.exists()){
+			myout("Get the test case first.");
 			return;
 		}
-		String[] inputFiles = multiTestDir.list();
+		String[] testFiles = testDir.list();
 		String[] command = {"java", "Main"};
-		for(int i = 0; i < inputFiles.length; i++){
+		for(int i = 0; i < testFiles.length; i++){
 			int count = i + 1;
 			ProcessBuilder pb = new ProcessBuilder(command);
-			pb = pb.redirectInput(new File("./" + INPUT_DIR_STRING + "/" + inputFiles[i]));
+			pb = pb.redirectInput(new File("./" + INPUT_DIR_STRING + "/" + testFiles[i]));
 			Process p = null;
 			try{
 				p = pb.start();
@@ -30,41 +30,54 @@ class AllTest{
 					break;
 				}
 			}catch(InterruptedException e){myout(e);}
-			BufferedReader bf = null;
+			
+			InputStream is = null;
 			if(p.exitValue() == 0){
-				bf = new BufferedReader(new InputStreamReader(p.getInputStream()));
+				is = p.getInputStream();
 			}else{
 				myout("[RE] " + count);
-				bf = new BufferedReader(new InputStreamReader(p.getErrorStream()));
+				is = p.getErrorStream();
 			}
-			
-			String read;
-			StringBuilder result = new StringBuilder("");
-			try{
-				while((read = bf.readLine()) != null){
-					myout(read);
-					result.append(read + "\n");
-				}
-			}catch(IOException e){}
+			BufferedReader bf = new BufferedReader(new InputStreamReader(is));
+			String result = createString(bf);
 			if(p.exitValue() == 0){
-				StringBuilder ans = new StringBuilder("");
+				boolean isAns = true;
+				String ans = "";
 				try{
-					BufferedReader ansBf = new BufferedReader(new FileReader(new File("./" + OUTPUT_DIR_STRING + "/" + inputFiles[i])));
-					while((read = ansBf.readLine()) != null){
-						ans.append(read + "\n");
+					BufferedReader ansBf = new BufferedReader(new FileReader(new File("./" + OUTPUT_DIR_STRING + "/" + testFiles[i])));
+					ans = createString(ansBf);
+				}catch(IOException e){
+					isAns = false;
+				}
+				myout(result);
+				if(isAns){
+					if(ans.equals(result)){
+						myout("[AC] " + count);
+					}else{
+						myout("[WA] " + count);
+						myout(ans);
 					}
-				}catch(IOException e){}
-				if(ans.toString().equals(result.toString())){
-					myout("[AC] " + count);
 				}else{
-					myout("[WA] " + count);
-					myout(ans.toString());
+					myout("[NO ANS] " + count);
 				}
 			}
 			myout("-------------------------");
+			if(p != null){
+				p.destroy();
+			}
 		}
 	}
 	static void myout(Object t){
 		System.out.println(t);
+	}
+	static String createString(BufferedReader bf){
+		StringBuilder sb = new StringBuilder("");
+		String read;
+		try{
+			while((read = bf.readLine()) != null){
+				sb.append(read + "\n");
+			}
+		}catch(IOException e){}
+		return sb.toString();
 	}
 }
