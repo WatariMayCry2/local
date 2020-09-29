@@ -15,7 +15,7 @@ public class Fetch{
 				}
 				String[] multiTestFiles = tmpDir.list();
 				for(int j = 0; j < multiTestFiles.length; j++){
-					File tmpFile = new File("./" + dirs[i] + multiTestFiles[j]);
+					File tmpFile = new File("./" + dirs[i] + "/" + multiTestFiles[j]);
 					tmpFile.delete();
 				}
 			}
