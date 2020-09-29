@@ -7,6 +7,9 @@ public class Fetch{
 	public static void main(String[] args){
 		try{
 			File multiTestDir = new File(MULTI_TEST_DIR_STRING);
+			if(!multiTestDir.exists()){
+				multiTestDir.mkdir();
+			}
 			String[] multiTestFiles = multiTestDir.list();
 			for(int i = 0; i < multiTestFiles.length; i++){
 				File tmpFile = new File(MULTI_TEST_DIR_STRING + multiTestFiles[i]);
