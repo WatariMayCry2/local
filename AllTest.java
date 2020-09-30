@@ -7,7 +7,6 @@ class AllTest{
 	static final String OUTPUT_DIR_STRING = "Sample Output";
 	AllTest(){}
 	public static void main(String[] arg){
-		Runtime rt = Runtime.getRuntime();
 		File testDir = new File("./" + INPUT_DIR_STRING);
 		if(!testDir.exists()){
 			myout("Get the test case first.");
@@ -24,7 +23,7 @@ class AllTest{
 				p = pb.start();
 			}catch(IOException e){myout(e);}
 			try{
-				boolean tl = p.waitFor(new Long("2000"), TimeUnit.MILLISECONDS);
+				boolean tl = p.waitFor(2000l, TimeUnit.MILLISECONDS);
 				if(!tl){
 					myout("[TLE] " + count + " (It will not be processed after that.)");
 					break;
@@ -32,7 +31,8 @@ class AllTest{
 			}catch(InterruptedException e){myout(e);}
 			
 			InputStream is = null;
-			if(p.exitValue() == 0){
+			int isAns = p.exitValue();
+			if(isAns == 0){
 				is = p.getInputStream();
 			}else{
 				myout("[RE] " + count);
@@ -40,27 +40,28 @@ class AllTest{
 			}
 			BufferedReader bf = new BufferedReader(new InputStreamReader(is));
 			String result = createString(bf);
-			if(p.exitValue() == 0){
-				boolean isAns = true;
-				String ans = "";
-				try{
-					BufferedReader ansBf = new BufferedReader(new FileReader(new File("./" + OUTPUT_DIR_STRING + "/" + testFiles[i])));
-					ans = createString(ansBf);
-				}catch(IOException e){
-					isAns = false;
-				}
-				myout(result);
-				if(isAns){
-					if(ans.equals(result)){
-						myout("[AC] " + count);
-					}else{
-						myout("[WA] " + count);
-						myout(ans);
-					}
-				}else{
-					myout("[NO ANS] " + count);
+			
+			String ans = "";
+			try{
+				BufferedReader ansBf = new BufferedReader(new FileReader(new File("./" + OUTPUT_DIR_STRING + "/" + testFiles[i])));
+				ans = createString(ansBf);
+			}catch(IOException e){
+				if(isAns == 0){
+					isAns = -1;
 				}
 			}
+			myout(result);
+			if(isAns == 0){
+				if(ans.equals(result)){
+					myout("[AC] " + count);
+				}else{
+					myout("[WA] " + count);
+					myout(ans);
+				}
+			}else if(isAns == -1){
+				myout("[NO ANS] " + count);
+			}
+			
 			myout("-------------------------");
 			if(p != null){
 				p.destroy();
