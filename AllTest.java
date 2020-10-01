@@ -5,18 +5,22 @@ import java.lang.*;
 class AllTest{
 	static final String INPUT_DIR_STRING = "Sample Input";
 	static final String OUTPUT_DIR_STRING = "Sample Output";
+	static String[] execCommand = {"java", "Main"};
 	AllTest(){}
 	public static void main(String[] arg){
+		if(!compile()){
+			return;
+		}
+
 		File testDir = new File("./" + INPUT_DIR_STRING);
 		if(!testDir.exists()){
 			myout("Get the test case first.");
 			return;
 		}
 		String[] testFiles = testDir.list();
-		String[] command = {"java", "Main"};
 		for(int i = 0; i < testFiles.length; i++){
 			int count = i + 1;
-			ProcessBuilder pb = new ProcessBuilder(command);
+			ProcessBuilder pb = new ProcessBuilder(execCommand);
 			pb = pb.redirectInput(new File("./" + INPUT_DIR_STRING + "/" + testFiles[i]));
 			Process p = null;
 			try{
@@ -80,5 +84,28 @@ class AllTest{
 			}
 		}catch(IOException e){}
 		return sb.toString();
+	}
+	static boolean compile(){
+		boolean isOK = false;
+		String[] compaileCommand = {"javac", "Main.java"};
+		ProcessBuilder pb = new ProcessBuilder(compaileCommand);
+		Process p = null;
+		try{
+			p = pb.start();
+		}catch(IOException e){myout(e);}
+		try{
+			p.waitFor();
+		}catch(InterruptedException e){myout(e);}
+		if(p.exitValue() != 0){
+			String compaileError = createString(new BufferedReader(new InputStreamReader(p.getErrorStream())));
+			myout("[CE] (The program will not run.)");
+			myout(compaileError);
+		}else{
+			isOK = true;
+		}
+		if(p != null){
+			p.destroy();
+		}
+		return isOK;
 	}
 }
