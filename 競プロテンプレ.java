@@ -17,7 +17,7 @@ public class Main{
 			BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 			try{
 				while((read = br.readLine()) != null){
-					inputLine.add(read);
+					inputLine.addAll(Arrays.asList(read.split(" ")));
 				}
 			}catch(IOException e){}
 			max = inputLine.size();
@@ -42,19 +42,25 @@ public class Main{
 	static int nextInt(){return Integer.parseInt(next());}
 	static long nextLong(){return Long.parseLong(next());}
 	static double nextDouble(){return Double.parseDouble(next());}
-	static ArrayList<String> nextStrArray(){return myconv(next(), 8);}
 	static ArrayList<String> nextCharArray(){return myconv(next(), 0);}
-	static ArrayList<Integer> nextIntArray(){
-		ArrayList<String> input = nextStrArray(); ArrayList<Integer> ret = new ArrayList<>(input.size());
-		for(int i = 0; i < input.size(); i++){
-			ret.add(Integer.parseInt(input.get(i)));
+	static ArrayList<String> nextStrArray(int size){
+		ArrayList<String> ret = new ArrayList<>(size);
+		for(int i = 0; i < size; i++){
+			ret.add(next());
 		}
 		return ret;
 	}
-	static ArrayList<Long> nextLongArray(){
-		ArrayList<String> input = nextStrArray(); ArrayList<Long> ret = new ArrayList<>(input.size());
-		for(int i = 0; i < input.size(); i++){
-			ret.add(Long.parseLong(input.get(i)));
+	static ArrayList<Integer> nextIntArray(int size){
+		ArrayList<Integer> ret = new ArrayList<>(size);
+		for(int i = 0; i < size; i++){
+			ret.add(Integer.parseInt(next()));
+		}
+		return ret;
+	}
+	static ArrayList<Long> nextLongArray(int size){
+		ArrayList<Long> ret = new ArrayList<>(size);
+		for(int i = 0; i < size; i++){
+			ret.add(Long.parseLong(next()));
 		}
 		return ret;
 	}
