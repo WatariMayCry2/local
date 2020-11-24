@@ -3,16 +3,32 @@ var read = require('readline').createInterface({
 	input: process.stdin, output: process.stdout
 });
 var obj; var inLine = [];
-read.on('line', function(input){inLine.push(input);});
+read.on('line', function(input){
+	var tmp = input.split(' ');
+	for(var i = 0; i < tmp.length; i++){
+		inLine.push(tmp[i]);
+	}
+});
 read.on('close', function(){
 	obj = init(inLine);
 	console.error('\n↑入力 ↓出力');
 	Main();
 });
 function makeClone(obj){return (obj instanceof Set) ? new Set(Array.from(obj)) : JSON.parse(JSON.stringify(obj));}
-function nextInt(){return myconv(next(),1);} function nextStrArray(){return myconv(next(),2);}
-function nextIntArray(){return myconv(next(),4);} function nextCharArray(){return myconv(next(),6);}
-function next(){return obj.next();} function hasNext(){return obj.hasNext();}
+function nextArray(size, code){
+	var ret = new Array(size);
+	for(var i = 0; i < size; i++){
+		if(code == 'int'){
+			ret[i] = nextInt();
+		}else{
+			ret[i] = next();
+		}
+	}
+	return ret;
+}
+function nextIntArray(size){return nextArray(size, 'int');} function nextStrArray(size){return nextArray(size, 'str');}
+function nextCharArray(){return myconv(next(),6);}
+function next(){return obj.next();} function hasNext(){return obj.hasNext();} function nextInt(){return myconv(next(),1);}
 function init(input){  
 	return {
 		list : input, index : 0, max : input.length,
