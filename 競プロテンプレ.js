@@ -2,7 +2,7 @@
 var read = require('readline').createInterface({
 	input: process.stdin, output: process.stdout
 });
-var obj; var inLine = [];
+var obj; var inLine = []; var outputList = [];
 read.on('line', function(input){
 	var tmp = input.split(' ');
 	for(var i = 0; i < tmp.length; i++){
@@ -13,6 +13,7 @@ read.on('close', function(){
 	obj = init(inLine);
 	console.error('\n↑入力 ↓出力');
 	Main();
+	console.log(myconv(outputList, 9));
 });
 function makeClone(obj){return (obj instanceof Set) ? new Set(Array.from(obj)) : JSON.parse(JSON.stringify(obj));}
 function nextArray(size, code){
@@ -36,7 +37,7 @@ function init(input){
 		next : function(){if(this.hasNext()){return this.list[this.index++];}else{throw 'ArrayIndexOutOfBoundsException ‚There is no more input';}}
 	};
 }
-function myout(s){console.log(s);}
+function myout(s){outputList.push(s);}
 function myerr(s){console.error('debug:' + require('util').inspect(s,false,null));}
 //param "no" is
 //unknown or outlier : return i. 1: parseInt.
