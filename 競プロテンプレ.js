@@ -2,11 +2,14 @@
 var read = require('readline').createInterface({
 	input: process.stdin, output: process.stdout
 });
-var obj; var inLine = []; var outputList = [];
+var obj; var inLine = []; var outputList = [];var retcode = new Set();
 read.on('line', function(input){
 	var tmp = input.split(' ');
 	for(var i = 0; i < tmp.length; i++){
 		inLine.push(tmp[i]);
+		if(i == tmp.length - 1){
+			retcode.add(inLine.length);
+		}
 	}
 });
 read.on('close', function(){
@@ -34,11 +37,13 @@ function init(input){
 	return {
 		list : input, index : 0, max : input.length,
 		hasNext : function(){return (this.index < this.max);},
-		next : function(){if(this.hasNext()){return this.list[this.index++];}else{throw 'ArrayIndexOutOfBoundsException ‚There is no more input';}}
+		next : function(){if(this.hasNext()){return this.list[this.index++];}else{throw 'ArrayIndexOutOfBoundsException ‚There is no more input';}},
+		isReturn : function(){return retcode.has(this.index);}
 	};
 }
 function myout(s){outputList.push(s);}
 function myerr(s){console.error('debug:' + require('util').inspect(s,false,null));}
+function isReturn(){return obj.isReturn();}
 //param "no" is
 //unknown or outlier : return i. 1: parseInt.
 //2: split space. 4: split space and parseInt.
