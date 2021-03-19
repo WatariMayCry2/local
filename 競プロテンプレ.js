@@ -33,6 +33,16 @@ function nextArray(size, code){
 function nextIntArray(size){return nextArray(size, 'int');} function nextStrArray(size){return nextArray(size, 'str');}
 function nextCharArray(){return myconv(next(),6);}
 function next(){return obj.next();} function hasNext(){return obj.hasNext();} function nextInt(){return myconv(next(),1);}
+function getCountMap(list){
+	var map = {};
+	for(var i = 0; i < list.length; i++){
+		if(map[list[i]] == null){
+			map[list[i]] = 0;
+		}
+		map[list[i]]++;
+	}
+	return map;
+}
 function init(input){  
 	return {
 		list : input, index : 0, max : input.length,
