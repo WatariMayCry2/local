@@ -99,8 +99,8 @@ function Combination(N, mod){
 	kaijo[0] = 1n;
 	inverse[0] = 1n;
 	for(var i = 1; i <= N; i++){
-		kaijo[i] = kaijo[i - 1] * BigInt(i) % mod;
-		inverse[i] = inverse[i - 1] * mypow(i, mod - 2, -1) % mod;
+		kaijo[i] = (kaijo[i - 1] * BigInt(i)) % mod;
+		inverse[i] = (inverse[i - 1] * mypow(i, mod - 2n, mod)) % mod;
 	}
 	var obj = {
 		kaijo : kaijo,
@@ -120,7 +120,7 @@ function Combination(N, mod){
 			return (this.kaijo[n] * this.inverse[n - k]) % this.mod;
 		},
 		nHk : function(n, k){
-			if(n + k - 1 < 0 || k < 0 || n < 0 || k > size || n > size || (n + k - 1) > size){
+			if(n + k - 1 < 0 || k < 0 || n < 0 || k > this.size || n > this.size || (n + k - 1) > this.size){
 				return 0n;
 			}
 			return this.nCk(n + k - 1, k);
