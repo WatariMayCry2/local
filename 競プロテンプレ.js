@@ -24,15 +24,17 @@ function nextArray(size, code){
 	for(var i = 0; i < size; i++){
 		if(code == 'int'){
 			ret[i] = nextInt();
+		}else if(code == 'long'){
+			ret[i] = BigInt(next());
 		}else{
 			ret[i] = next();
 		}
 	}
 	return ret;
 }
-function nextIntArray(size){return nextArray(size, 'int');} function nextStrArray(size){return nextArray(size, 'str');}
+function nextIntArray(size){return nextArray(size, 'int');} function nextStrArray(size){return nextArray(size, 'str');} function nextLongArray(size){return nextArray(size, 'long');}
 function nextCharArray(){return myconv(next(),6);}
-function next(){return obj.next();} function hasNext(){return obj.hasNext();} function nextInt(){return myconv(next(),1);}
+function next(){return obj.next();} function hasNext(){return obj.hasNext();} function nextInt(){return myconv(next(),1);} function nextLong(){return BigInt(next());}
 function getCountMap(list){
 	var map = {};
 	for(var i = 0; i < list.length; i++){
