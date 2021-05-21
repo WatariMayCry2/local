@@ -279,7 +279,6 @@ function ArrayDeque(add){
 			}
 			return this.map[this.L + 1];
 		},
-		
 		add : function(V){ return this.addLast(V); },
 		push : function(V){ return this.addLast(V); },
 		addLast : function(V){
@@ -289,7 +288,7 @@ function ArrayDeque(add){
 			}
 			this.R++;
 		},
-		pop : function(V){ return this.pollLast(); },
+		pop : function(){ return this.pollLast(); },
 		pollLast : function(){
 			if(this.L == this.R){
 				return null;
@@ -313,6 +312,35 @@ function ArrayDeque(add){
 			}else{
 				return Math.abs(this.L - this.R) - 1;
 			}
+		},
+		toString : function(){
+			var list = [];
+			for(var i = this.L + 1; i < this.R; i++){
+				list.push(this.map[i]);
+			}
+			return "[" + list.join(", ") + "]";
+		},
+		get : function(index){
+			if(this.L + 1 + index >= this.R || index < 0){
+				return null;
+			}else{
+				return this.map[this.L + 1 + index];
+			}
+		},
+		set : function(index, V){
+			if(this.L + 1 + index >= this.R || index < 0){
+				throw 'ArrayIndexOutOfBoundsException can\'t set';
+			}else{
+				this.map[this.L + 1 + index] = V;
+			}
+		},
+		isEmpty : function(){
+			return this.size() == 0;
+		},
+		clear : function(){
+			this.L = 0;
+			this.R = 0;
+			this.map = {}
 		}
 	}
 	if(add){
