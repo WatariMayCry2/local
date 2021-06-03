@@ -1,6 +1,6 @@
 import java.util.*; import java.io.*; import java.math.*;
 public class Main{
-	//Don't have to see. start------------------------------------------
+	//見なくていいよ　ここから------------------------------------------
 	static class InputIterator{
 		ArrayList<String> inputLine = new ArrayList<>(1024);
 		int index = 0; int max; String read;
@@ -106,13 +106,14 @@ public class Main{
 		CONVSTR.put(8, " "); CONVSTR.put(9, "\n"); CONVSTR.put(0, "");
 		solve();flush();
 	}
-	//Don't have to see. end------------------------------------------
-	static void solve(){//Here is the main function
+	//見なくていいよ　ここまで------------------------------------------
+	//このコードをコンパイルするときは、「-encoding UTF-8」を指定すること
+	static void solve(){//ここがメイン関数
 		
 	}
-	//Method addition frame start
+	//メソッド追加エリア　ここから
 
 
 
-	//Method addition frame end
+	//メソッド追加エリア　ここまで
 }
