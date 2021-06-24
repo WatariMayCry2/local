@@ -155,11 +155,12 @@ static class Combination{
 
 //素因数分解
 static class PrimeFactorization{
-    ArrayList<Long> primes;
+    HashSet<Long> primes;
     HashMap<Long, Integer> map = new HashMap<>();
     PrimeFactorization(long val){
         if(isPrime(val)){
             map.put(val, 1);
+            primes = new HashSet<>(map.keySet());
             return;
         }
         long div = 2;
@@ -187,13 +188,13 @@ static class PrimeFactorization{
                 div = (div == 2) ? div + 1 : div + 2;
             }
         }
-        primes = new ArrayList<>(map.keySet());
+        primes = new HashSet<>(map.keySet());
         Collections.sort(primes);
     }
     public int get(long K){
         return map.get(K);
     }
-    public ArrayList<Long> getKeys(){
+    public HashSet<Long> getKeys(){
         return primes;
     }
     public boolean containsKey(long K){
