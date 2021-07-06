@@ -189,7 +189,6 @@ static class PrimeFactorization{
             }
         }
         primes = new HashSet<>(map.keySet());
-        Collections.sort(primes);
     }
     public int get(long K){
         return map.get(K);
