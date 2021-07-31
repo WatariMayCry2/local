@@ -156,20 +156,49 @@ function getPrimeFactorization(val){
 }
 
 //二分探索（一般）
-function binarySearch(list,search){
-	var ng = -1;
-	var ok = list.length;
+//両端に番兵（極端に低い/高い値）を置くことを推奨する
+function binarySearch(list, search, method){
+	var ng = 0;
+	var ok = list.length - 1;
 	var center;
 	while(Math.abs(ok - ng) > 1){
 		center = Math.floor((ok + ng) / 2);
-		if(list[center] >= search){
-			ok = center;
-		}else{
-			ng = center;
+		switch(method){
+			case "floor":
+				if(list[center] >= search){
+					ok = center;
+				}else{
+					ng = center;
+				}
+				break;
+			case "ceiling":
+				if(list[center] <= search){
+					ng = center;
+				}else{
+					ok = center;
+				}
+				break;
+			case "lower":
+				if(list[center] > search){
+					ok = center;
+				}else{
+					ng = center;
+				}
+				break;
+			case "higher":
+				if(list[center] < search){
+					ng = center;
+				}else{
+					ok = center;
+				}
+				break;
 		}
 	}
-	return list[ok];
-	//return list[ng];
+	if(method == "floor" || method == "higher"){
+		return list[ok];
+	}else{
+		return list[ng];
+	}
 }
 
 //UnionFind
