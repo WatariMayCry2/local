@@ -2,7 +2,7 @@ import java.util.*; import java.io.*; import java.math.*;
 public class Main{
 	//見なくていいよ　ここから------------------------------------------
 	static class InputIterator{
-		ArrayList<String> inputLine = new ArrayList<>(1024);
+		ArrayList<String> inputLine = new ArrayList<>(buf);
 		int index = 0; int max; String read;
 		InputIterator(){
 			BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -22,6 +22,8 @@ public class Main{
 			}
 		}
 	}
+	//入力バッファサイズのつもり。入力点数（スペース区切りでの要素数）が100万を超える場合はバッファサイズを100万にすること
+	static int buf = 1024;
 	static HashMap<Integer, String> CONVSTR = new HashMap<>();
 	static InputIterator ii = new InputIterator();//This class cannot be used in reactive problem.
 	static PrintWriter out = new PrintWriter(System.out);
