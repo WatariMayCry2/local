@@ -194,10 +194,10 @@ function binarySearch(list, search, method){
 				break;
 		}
 	}
-	if(method == "floor" || method == "higher"){
-		return list[ok];
-	}else{
+	if(method == "floor" || method == "lower"){
 		return list[ng];
+	}else{
+		return list[ok];
 	}
 }
 
