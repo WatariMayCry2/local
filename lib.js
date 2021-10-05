@@ -165,7 +165,7 @@ function binarySearch(list, search, method){
 		center = Math.floor((ok + ng) / 2);
 		switch(method){
 			case "floor":
-				if(list[center] >= search){
+				if(list[center] > search){
 					ok = center;
 				}else{
 					ng = center;
