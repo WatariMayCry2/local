@@ -106,6 +106,9 @@ static long mypow(long x, long n, long m) {
                 ans %= m;
             }
         }
+	if(m != -1){
+            x %= m;
+        }
         x *= x;
         if(m != -1){
             x %= m;
