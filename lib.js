@@ -172,7 +172,7 @@ function binarySearch(list, search, method){
 				}
 				break;
 			case "ceiling":
-				if(list[center] <= search){
+				if(list[center] = search){
 					ng = center;
 				}else{
 					ok = center;
