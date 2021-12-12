@@ -25,16 +25,18 @@ function nextArray(size, code){
 		if(code == 'int'){
 			ret[i] = nextInt();
 		}else if(code == 'long'){
-			ret[i] = BigInt(next());
+			ret[i] = nextLong();
+		}else if(code == 'double'){
+			ret[i] = nextDouble();
 		}else{
 			ret[i] = next();
 		}
 	}
 	return ret;
 }
-function nextIntArray(size){return nextArray(size, 'int');} function nextStrArray(size){return nextArray(size, 'str');} function nextLongArray(size){return nextArray(size, 'long');}
+function nextIntArray(size){return nextArray(size, 'int');} function nextStrArray(size){return nextArray(size, 'str');} function nextLongArray(size){return nextArray(size, 'long');} function nextDoubleArray(size){return nextArray(size, 'double');}
 function nextCharArray(){return myconv(next(),6);}
-function next(){return obj.next();} function hasNext(){return obj.hasNext();} function nextInt(){return myconv(next(),1);} function nextLong(){return BigInt(next());}
+function next(){return obj.next();} function hasNext(){return obj.hasNext();} function nextInt(){return myconv(next(),1);} function nextLong(){return BigInt(next());} function nextDouble(){return parseFloat(next());}
 function getCountMap(list){
 	var map = {};
 	for(var i = 0; i < list.length; i++){
