@@ -400,3 +400,59 @@ function mysqrt(value) {
 
     return newtonIteration(value, 1n);
 }
+
+//優先度付きキュー。Comparator定義可能
+class PriorityQueue {
+	constructor(f) {
+		this.heap = [];
+		this.func = f;
+	}
+
+	add(v) {
+		var heap = this.heap;
+		var i = heap.length++;
+		var j;
+		while(i) {
+			j = (i - 1) >> 1;
+			if(this.func(heap[j], v) <= 0){
+				break;
+			}
+			heap[i] = heap[j];
+			i = j;
+		}
+		heap[i] = v;
+	}
+
+	poll() {
+		var heap = this.heap;
+		var top = heap[0];
+		var popped = heap.pop();
+		var i = 0
+		var j
+		var k = heap.length >> 1;
+		while(i < k) {
+			j = (i * 2) + 1;
+			if(this.func(heap[j + 1], heap[j]) < 0){
+				j++;
+			}
+			if(this.func(popped, heap[j]) <= 0){
+				break
+			}
+			heap[i] = heap[j];
+			i = j;
+		}
+
+		if(heap.length){
+			heap[i] = popped;
+		} 
+		return top;
+	}
+
+	size() {
+		return this.heap.length;
+	}
+
+	peek() {
+		return this.heap[0];
+	}
+}
