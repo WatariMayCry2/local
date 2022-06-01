@@ -2,11 +2,11 @@ import java.util.*; import java.io.*; import java.math.*;
 public class Main{
 	//見なくていいよ　ここから------------------------------------------
 	static class InputIterator{
-		ArrayList<String> inputLine = new ArrayList<>(buf);
+		ArrayList<String> inputLine = new ArrayList<>(1024);
 		int index = 0; int max; String read;
 		InputIterator(){
-			BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 			try{
+				BufferedReader br = new BufferedReader(new InputStreamReader(System.in, "UTF-8"));
 				while((read = br.readLine()) != null){
 					inputLine.addAll(Arrays.asList(read.split(" ")));
 				}
@@ -22,14 +22,12 @@ public class Main{
 			}
 		}
 	}
-	//入力バッファサイズのつもり。入力点数（スペース区切りでの要素数）が100万を超える場合はバッファサイズを100万にすること
-	static int buf = 1024;
 	static HashMap<Integer, String> CONVSTR = new HashMap<>();
 	static InputIterator ii = new InputIterator();//This class cannot be used in reactive problem.
 	static PrintWriter out = new PrintWriter(System.out);
 	static void flush(){out.flush();}
 	static void myout(Object t){out.println(t);}
-	static void myerr(Object t){System.err.print("debug:");System.err.println(t);}
+	static void myerr(Object... t){System.err.print("debug:");System.err.println(Arrays.deepToString(t));}
 	static String next(){return ii.next();}
 	static boolean hasNext(){return ii.hasNext();}
 	static int nextInt(){return Integer.parseInt(next());}
