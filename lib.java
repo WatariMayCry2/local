@@ -433,3 +433,55 @@ static class ExtendGcd{
         }
     }
 }
+
+//文字列Sの中に、文字列Tが含まれているなら、どの位置か？を高速で求めるクラス
+static class FastSearchString{
+	FastSearchString(){}
+	public int findSubstring(String S, String T) {
+	    int[] lps = computeLPSArray(T);
+	    int i = 0; // インデックスiは文字列Sを走査するためのカウンタ
+	    int j = 0; // インデックスjは文字列Tを走査するためのカウンタ
+
+	    while (i < S.length()) {
+	        if (S.charAt(i) == T.charAt(j)) {
+	            i++;
+	            j++;
+
+	            if (j == T.length()) {
+	                return i - j; // 部分文字列が見つかった場合、最初の位置を返す
+	            }
+	        } else {
+	            if (j != 0) {
+	                j = lps[j - 1];
+	            } else {
+	                i++;
+	            }
+	        }
+	    }
+
+	    return -1; // 部分文字列が見つからなかった場合
+	}
+
+	public int[] computeLPSArray(String pattern) {
+	    int[] lps = new int[pattern.length()];
+	    int i = 1;
+	    int j = 0;
+
+	    while (i < pattern.length()) {
+	        if (pattern.charAt(i) == pattern.charAt(j)) {
+	            lps[i] = j + 1;
+	            i++;
+	            j++;
+	        } else {
+	            if (j != 0) {
+	                j = lps[j - 1];
+	            } else {
+	                lps[i] = 0;
+	                i++;
+	            }
+	        }
+	    }
+
+	    return lps;
+	}
+}
