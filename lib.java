@@ -35,6 +35,7 @@ static boolean isPrime(long val){
 }
 
 //エラトステネスの篩
+//→のほうが早いかも　https://github.com/TheAlgorithms/Java/blob/master/src/main/java/com/thealgorithms/others/SieveOfEratosthenes.java
 static HashSet<Integer> sieveOfEratos(int val){
     HashSet<Integer> primes = new HashSet<>();
     HashSet<Integer> nums = new HashSet<>();
