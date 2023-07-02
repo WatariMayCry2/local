@@ -35,66 +35,9 @@ static boolean isPrime(long val){
 }
 
 //エラトステネスの篩
-//→のほうが早いかも　https://github.com/TheAlgorithms/Java/blob/master/src/main/java/com/thealgorithms/others/SieveOfEratosthenes.java
-static HashSet<Integer> sieveOfEratos(int val){
-    HashSet<Integer> primes = new HashSet<>();
-    HashSet<Integer> nums = new HashSet<>();
-    int[] used = {2, 3, 5, 7, 11};
-    int underPrime = 13;
-    if(val <= 1){
-        return nums;
-    }
-    for(int i = 0; i < used.length; i++){
-        if(used[i] <= val){
-            nums.add(used[i]);
-        }
-    }
-    for(int i = underPrime; i <= val; i += 2){
-        boolean continued = false;
-        for(int j = 0; j < used.length; j++){
-            if(i % used[j] == 0){
-                continued = true;
-                break;
-            }
-        }
-        if(continued){
-            continue;
-        }
-        nums.add(i);
-    }
-    int i = 2;
-    while(i <= Math.sqrt(val)){
-        if(!nums.contains(i)){
-            if(i == 2){
-                i++;
-            }else{
-                i += 2;
-            }
-            continue;
-        }
-        int count = 1;
-        while(i * count <= val){
-            if(i <= 11 && Arrays.asList(used).contains(i)){
-                break;
-            }
-            if(count == 1){
-                primes.add(i);
-            }
-            nums.remove(i * count);
-            count++;
-        }
-        if(i == 2){
-            i++;
-        }else{
-            i += 2;
-        }
-    }
-    Iterator<Integer> it = primes.iterator();
-    while(it.hasNext()){
-        nums.add(it.next());
-    }
-    return nums;
-}
+//これ使うこと。集合型は個別に実装
+https://github.com/TheAlgorithms/Java/blob/master/src/main/java/com/thealgorithms/others/SieveOfEratosthenes.java
+
 
 //繰り返し二乗法
 static long mypow(long x, long n) {return mypow(x, n, -1);}
