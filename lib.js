@@ -35,38 +35,37 @@ function isPrime(val){
 }
 
 //エラトステネスの篩
-function sieveOfEratos(val){
-	var primes = new Set();
-	var nums = new Set();
-	var used = [2,3,5,7,11];//already primes
-	var underPrime = 13;
-	if(val <= 1){
-		return nums;
+//下記をもとにjavascriptへ置き換え + 集合化
+//https://github.com/TheAlgorithms/Java/blob/master/src/main/java/com/thealgorithms/others/SieveOfEratosthenes.java
+function sieveOfEratos(n) {
+	if(n <= 0){
+		throw 'IllegalArgumentException ,n must be positive.';
 	}
-	for(var i = 0; i < used.length; i++){if(used[i] <= val){nums.add(used[i]);}}
-	for(var i = underPrime; i <= val; i = i + 2){
-		var continued = false;
-		for(var j = 0; j < used.length; j++){
-			if(i % used[j] == 0){continued = true; break;}
-		}
-		if(continued){continue;}
-		nums.add(i);
-	}
-	for(var i = 2; i <= Math.sqrt(val); (i == 2) ? i++ : i = i + 2){
-		if(!nums.has(i)){continue;}
-		var count = 1;
-		while(i * count <= val){
-			if(i <= 11 && used.indexOf(i) != -1){break;}
-			if(count == 1){primes.add(i);}
-			nums.delete(i * count);
-		count++;
+	var Type = {
+		Prime : 1,
+		NOT_PRIME : 0
+	};
+    var isPrimeArray = new Array(n + 1);
+    isPrimeArray.fill(Type.PRIME);
+    isPrimeArray[0] = isPrimeArray[1] = Type.NOT_PRIME;
+    var cap = Math.sqrt(n);
+    var count = 0;
+	for (var i = 2; i <= cap; i++) {
+		if (isPrimeArray[i] == Type.PRIME) {
+			count++;
+			for (var j = 2; i * j <= n; j++) {
+				isPrimeArray[i * j] = Type.NOT_PRIME;
+			}
 		}
 	}
-	var primeItr = Array.from(primes);
-	for(var i = 0; i < primeItr.length; i++){
-		nums.add(primeItr[i]);
+	var primes = new Array(count);
+	var primeIndex = 0;
+	for(var i = 0; i < isPrimeArray.length; i++){
+		if(isPrimeArray[i] == Type.PRIME){
+			primes[primeIndex++] = i;
+		}
 	}
-	return nums;
+	return new Set(primes);
 }
 
 //繰り返し二乗法
