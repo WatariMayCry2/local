@@ -455,3 +455,41 @@ class PriorityQueue {
 		return this.heap[0];
 	}
 }
+
+//辞書順で次に来る文字列（順列全列挙用）
+function nextPermutation(sequence) {
+  // 入力数列を配列に変換
+  let arr = sequence.split('');
+
+  // 配列の後ろから見て、昇順に並んでいない一番小さいインデックスを探す
+  let i = arr.length - 2;
+  while (i >= 0 && arr[i].charCodeAt() >= arr[i + 1].charCodeAt()) {
+    i--;
+  }
+
+  // 入力数列がすでに辞書順最大の場合、"Final"を返す
+  if (i === -1) {
+    return 'Final';
+  }
+
+  // arr[i] よりも大きい数の中で最小の数を見つける
+  let j = arr.length - 1;
+  while (arr[j].charCodeAt() <= arr[i].charCodeAt()) {
+    j--;
+  }
+
+  // arr[i] と arr[j] を交換する
+  [arr[i], arr[j]] = [arr[j], arr[i]];
+
+  // arr[i+1] 以降の要素を反転させる
+  let left = i + 1;
+  let right = arr.length - 1;
+  while (left < right) {
+    [arr[left], arr[right]] = [arr[right], arr[left]];
+    left++;
+    right--;
+  }
+
+  // 次の数列を文字列として返す
+  return arr.join('');
+}
