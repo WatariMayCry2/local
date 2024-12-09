@@ -36,7 +36,7 @@ static boolean isPrime(long val){
 
 //エラトステネスの篩
 //これ使うこと。集合型は個別に実装
-https://github.com/TheAlgorithms/Java/blob/master/src/main/java/com/thealgorithms/others/SieveOfEratosthenes.java
+https://github.com/TheAlgorithms/Java/blob/master/src/main/java/com/thealgorithms/maths/SieveOfEratosthenes.java
 
 
 //繰り返し二乗法
