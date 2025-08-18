@@ -1,29 +1,50 @@
 import java.util.*; import java.io.*; import java.math.*;
+import java.util.concurrent.*;
 public class Main{
 	//見なくていいよ　ここから------------------------------------------
-	static class InputIterator{
-		ArrayList<String> inputLine = new ArrayList<>(1024);
-		int index = 0; int max; String read;
-		InputIterator(){
-			try{
-				BufferedReader br = new BufferedReader(new InputStreamReader(System.in, "UTF-8"));
-				while((read = br.readLine()) != null){
-					inputLine.addAll(Arrays.asList(read.split(" ")));
+	static class InputIterator {
+		BufferedReader br;
+		ArrayDeque<String> buffer = new ArrayDeque<>();
+		boolean isInteractive;
+
+		InputIterator(boolean interactive) {
+			isInteractive = interactive;
+			try {
+				br = new BufferedReader(new InputStreamReader(System.in, "UTF-8"));
+				if (!interactive) {
+					String line;
+					while ((line = br.readLine()) != null) {
+						Collections.addAll(buffer, line.split(" "));
+					}
 				}
-			}catch(IOException e){}
-			max = inputLine.size();
-		}
-		boolean hasNext(){return (index < max);}
-		String next(){
-			if(hasNext()){
-				return inputLine.get(index++);
-			}else{
-				throw new IndexOutOfBoundsException("There is no more input");
+			} catch (IOException e) {
+				e.printStackTrace();
 			}
 		}
+
+		boolean hasNext() {
+			if (isInteractive) {
+				if (!buffer.isEmpty()) return true;
+				try {
+					String line = br.readLine();
+					if (line == null) return false;
+					Collections.addAll(buffer, line.split(" "));
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+				return !buffer.isEmpty();
+			}
+			return !buffer.isEmpty();
+		}
+
+		String next() {
+			if (!hasNext()) throw new NoSuchElementException();
+			return buffer.poll();
+		}
 	}
+
 	static HashMap<Integer, String> CONVSTR = new HashMap<>();
-	static InputIterator ii = new InputIterator();//This class cannot be used in reactive problem.
+	static InputIterator ii;
 	static PrintWriter out = new PrintWriter(System.out);
 	static void flush(){out.flush();}
 	static void myout(Object t){out.println(t);}
@@ -103,6 +124,7 @@ public class Main{
 		return new ArrayList<String>(Arrays.asList(str.split(no)));
 	}
 	public static void main(String[] args){
+		ii = new InputIterator(true);
 		CONVSTR.put(8, " "); CONVSTR.put(9, "\n"); CONVSTR.put(0, "");
 		solve();flush();
 	}
