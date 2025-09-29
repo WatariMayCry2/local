@@ -182,7 +182,7 @@ public class Main{
             }
         }
         System.out.println("\n");
-        System.out.println("@gerukomasan @nanates @harusake14 @cass09438 @watarimaycry2");
+        System.out.println("@gerukomasan @cass09438 @watarimaycry2");
         System.out.println("<[ここにリンクを張る]>");
         System.out.println("次週分のEカリーン調整です。**[ここに納期を書く]**にご回答お願いします。");
 	}
